@@ -1,0 +1,171 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator IPK - PENS</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="glow-bg glow-blue"></div>
+  <div class="glow-bg glow-purple"></div>
+
+  <header class="app-header">
+    <div class="brand">
+      <div class="brand-icon">🎓</div>
+      <h1>Kalkulator <span>IPK</span></h1>
+    </div>
+    <nav class="nav-pills" aria-label="Navigasi Utama">
+      <button type="button" class="pill-btn active" data-target="view-input">Input MK</button>
+      <button type="button" class="pill-btn" data-target="view-transkrip">
+        Transkrip <span id="total-mk-badge" class="badge">0</span>
+      </button>
+      <button type="button" class="pill-btn" data-target="view-profil">Profil</button>
+    </nav>
+  </header>
+
+  <main class="app-container">
+    <section id="view-input" class="page-view active">
+      <div class="grid-layout">
+        <div class="card card-hero">
+          <div class="hero-header">
+            <span class="tag">Status Akademik</span>
+            <h2>IPK Kamu Saat Ini</h2>
+          </div>
+          <div class="ipk-ring">
+            <div class="ipk-number" id="ipk-val">0.00</div>
+            <div class="ipk-label">dari 4.00</div>
+          </div>
+          <div class="meta-row">
+            <div class="meta-item">
+              <span class="meta-label">Total SKS</span>
+              <strong id="total-sks-val" class="meta-value">0</strong>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Mata Kuliah</span>
+              <strong id="count-mk-val" class="meta-value">0</strong>
+            </div>
+          </div>
+          <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="4" aria-valuenow="0">
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </div>
+
+        <div class="card card-form">
+          <h2>Tambah Mata Kuliah</h2>
+          <form id="form-mk" novalidate>
+            <div class="form-group">
+              <label for="nama-mk">Nama Mata Kuliah</label>
+              <input type="text" id="nama-mk" placeholder="Pilih rekomendasi di bawah atau ketik..." required autocomplete="off">
+              <div class="quick-chips" id="quick-chips">
+                <button type="button" class="chip">Sistem Pemancar</button>
+                <button type="button" class="chip">Praktikum Sistem Pemancar</button>
+                <button type="button" class="chip">Pemrograman Visual</button>
+                <button type="button" class="chip">Praktikum Pemrograman Visual</button>
+                <button type="button" class="chip">Animasi 2D</button>
+                <button type="button" class="chip">Praktikum Animasi 2D</button>
+                <button type="button" class="chip">Jaringan Komputer</button>
+                <button type="button" class="chip">Praktikum Jaringan Komputer</button>
+                <button type="button" class="chip">Teknik Penyiaran</button>
+                <button type="button" class="chip">Praktikum Teknik Penyiaran</button>
+                <button type="button" class="chip">Workshop Jurnalistik</button>
+                <button type="button" class="chip">Workshop UI / UX</button>
+                <button type="button" class="chip">Workshop Konten Digital</button>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="sks-mk">SKS</label>
+                <select id="sks-mk">
+                  <option value="1">1 SKS</option>
+                  <option value="2">2 SKS</option>
+                  <option value="3" selected>3 SKS</option>
+                  <option value="4">4 SKS</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="nilai-mk">Nilai Huruf</label>
+                <select id="nilai-mk">
+                  <option value="4.0">A (4.0)</option>
+                  <option value="3.5">AB (3.5)</option>
+                  <option value="3.0">B (3.0)</option>
+                  <option value="2.5">BC (2.5)</option>
+                  <option value="2.0">C (2.0)</option>
+                  <option value="1.0">D (1.0)</option>
+                  <option value="0.0">E (0.0)</option>
+                </select>
+              </div>
+            </div>
+            <p id="pesan-error" class="pesan-error" role="alert"></p>
+            <button type="submit" id="btn-tambah" class="btn-gradient">
+              + Simpan Ke Transkrip
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-transkrip" class="page-view" hidden>
+      <div class="card card-full">
+        <div class="card-header-flex">
+          <div>
+            <h2>Daftar Transkrip Nilai</h2>
+            <p class="sub-text">Rincian seluruh mata kuliah yang tersimpan</p>
+          </div>
+        </div>
+        <div class="table-wrapper">
+          <table class="modern-table">
+            <thead>
+              <tr>
+                <th>Mata Kuliah</th>
+                <th>SKS</th>
+                <th>Nilai</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="list-mk"></tbody>
+          </table>
+        </div>
+        <p id="pesan-kosong" class="pesan-kosong">Belum ada data mata kuliah. Isi melalui menu Input MK.</p>
+      </div>
+    </section>
+
+    <section id="view-profil" class="page-view" hidden>
+      <div class="card card-profile">
+        <div class="profile-header">
+          <div class="avatar-glow default-avatar">👤</div>
+          <div>
+            <h2 id="disp-nama">Mikhael Enesia Asmara</h2>
+            <p class="profile-nrp">NRP: <span id="disp-nrp">5125500050</span></p>
+          </div>
+        </div>
+        <hr class="divider">
+        <div class="profile-edit-container">
+          <h3>Pengaturan Data Profil</h3>
+          <div class="profile-grid">
+            <div class="info-card">
+              <label for="input-nama" class="info-title">Nama Lengkap</label>
+              <input type="text" id="input-nama" value="Mikhael Enesia Asmara">
+            </div>
+            <div class="info-card">
+              <label for="input-nrp" class="info-title">NRP</label>
+              <input type="text" id="input-nrp" value="5125500050">
+            </div>
+            <div class="info-card">
+              <label for="input-kelas" class="info-title">Kelas</label>
+              <input type="text" id="input-kelas" value="3 D3 MM B">
+            </div>
+            <div class="info-card">
+              <label for="input-prodi" class="info-title">Program Studi</label>
+              <input type="text" id="input-prodi" value="D3 Teknologi Multimedia & Broadcasting">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
