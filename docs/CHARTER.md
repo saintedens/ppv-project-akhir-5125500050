@@ -4,8 +4,7 @@
 Mahasiswa sering kesulitan menghitung, memprediksi, dan melacak Indeks Prestasi Kumulatif (IPK) secara akurat karena rumus bobot SKS yang rumit, serta tidak adanya gambaran jelas berapa nilai mata kuliah yang harus dicapai di semester depan untuk merealisasikan target IPK kelulusan.
 
 ## 2. Pengguna Sasaran & Persona
-* **Nama Persona:** Mikhael (20 tahun)
-* **Profil:** Mahasiswa D3 Teknologi Multimedia dan Broadcasting yang sedang menempuh semester 3.
+* **Profil:** Mahasiswa yang sedang menempuh semester 3.
 * **Keseharian:** Memiliki banyak mata kuliah praktikum dengan bobot SKS bervariasi.
 * **Kendala:** Bingung menghitung simulasi nilai IPK jika ada mata kuliah yang diulang, serta ingin tahu minimal nilai semester ini agar IPK tetap aman di atas target.
 
