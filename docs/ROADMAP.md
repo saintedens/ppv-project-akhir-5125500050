@@ -8,3 +8,5 @@
 | **P12** | Reusable Component & Storage | Komponen baris input matkul reusable, integrasi `localStorage` untuk simpan riwayat IPK, penerbitan Rilis/Tag `v0.1.0` & CHANGELOG. |
 | **P13** | Pemantapan Konsep Produk (Tugas 7) | Penyempurnaan fitur simulasi target IPK dan finalisasi dokumen presentasi konsep produk. |
 | **P14** | Demo Akhir Proyek | Presentasi & demo aplikasi interaktif rilis final. |
+## Sprint 3
+- [x] Refactoring ES Modules (Memecah app.js ke modul state.js, ui.js, main.js)
