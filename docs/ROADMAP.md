@@ -10,3 +10,7 @@
 | **P14** | Demo Akhir Proyek | Presentasi & demo aplikasi interaktif rilis final. |
 ## Sprint 3
 - [x] Refactoring ES Modules (Memecah app.js ke modul state.js, ui.js, main.js)
+## Sprint 4
+- [x] Implementasi komponen DOM reusable (`src/komponen.js`) dengan perlindungan XSS (`textContent`)
+- [x] Implementasi penyimpanan aman berversi `kalkulator-ipk:v1` (`src/storage.js`) dan pengujian ketangguhan data rusak
+- [x] Pembaruan `README.md`, `CHANGELOG.md`, dan rilis tag `v0.4.0`

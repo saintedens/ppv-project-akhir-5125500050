@@ -1,8 +1,8 @@
-# Kalkulator IPK Mahasiswa
+# Kalkulator IPK — Project Akhir Praktikum Pemrograman Visual
 
-> **Satu Kalimat Masalah:** Membantu mahasiswa menghitung dan memprediksi IPK secara akurat dan mudah tanpa perlu kalkulasi manual yang rumit.
+Aplikasi web interaktif untuk menghitung Indeks Prestasi Kumulatif (IPK), mengelola transkrip mata kuliah beserta bobot SKS, dan menyimpan riwayat perhitungan secara aman di browser.
 
-## Cara Menjalankan Aplikasi
-1. *Clone* repositori ini:
+## Cara Menjalankan
+1. Kloning repositori ini:
    ```bash
-   git clone [https://github.com/USERNAME_GITHUB/ppv-project-akhir-5125500050.git](https://github.com/USERNAME_GITHUB/ppv-project-akhir-5125500050.git)
+   git clone [https://github.com/USERNAME_KAMU/ppv-project-akhir-5125500050.git](https://github.com/USERNAME_KAMU/ppv-project-akhir-5125500050.git)

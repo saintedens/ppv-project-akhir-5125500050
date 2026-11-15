@@ -1,15 +1,6 @@
-const STORAGE_KEY = 'kalkulator-ipk-data';
+import { muat, simpan } from './storage.js';
 
-let daftarMK = muatData();
-
-export function muatData() {
-  const data = localStorage.getItem(STORAGE_KEY);
-  return data ? JSON.parse(data) : [];
-}
-
-export function simpanData() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(daftarMK));
-}
+let daftarMK = muat();
 
 export function ambilSemuaMK() {
   return daftarMK;
@@ -18,19 +9,19 @@ export function ambilSemuaMK() {
 export function tambahMK(matkul) {
   const mkBaru = {
     id: Date.now(),
-    nama: matkul.nama,
+    nama: String(matkul.nama),
     sks: Number(matkul.sks) || 3,
-    nilai: matkul.nilai,          // Contoh: "D"
-    bobot: Number(matkul.bobot)   // Contoh: 1.0
+    nilai: String(matkul.nilai || 'A'),
+    bobot: typeof matkul.bobot === 'number' && !isNaN(matkul.bobot) ? matkul.bobot : 4.0,
   };
   daftarMK.push(mkBaru);
-  simpanData();
+  simpan(daftarMK);
   return mkBaru;
 }
 
 export function hapusMK(id) {
   daftarMK = daftarMK.filter((mk) => mk.id !== id);
-  simpanData();
+  simpan(daftarMK);
 }
 
 export function hitungIPK() {
@@ -44,7 +35,7 @@ export function hitungIPK() {
   daftarMK.forEach((mk) => {
     const sks = Number(mk.sks) || 0;
     const bobot = typeof mk.bobot === 'number' && !isNaN(mk.bobot) ? mk.bobot : 4.0;
-    
+
     totalSKS += sks;
     totalBobot += bobot * sks;
   });
